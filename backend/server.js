@@ -29,7 +29,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/api/v1/auth', require('./routes/auth'));
 // app.use('/api/v1/gallery', require('./routes/gallery'));
 // app.use('/api/v1/services', require('./routes/services'));
 // app.use('/api/v1/testimonials', require('./routes/testimonials'));

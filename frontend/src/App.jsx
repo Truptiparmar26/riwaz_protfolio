@@ -5,7 +5,6 @@ import Lenis from 'lenis';
 // Pages & Components
 import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
-import AdminDashboard from './pages/AdminDashboard';
 import Preloader from './components/Preloader';
 import CustomCursor from './components/CustomCursor';
 import { ThemeProvider } from './context/ThemeContext';
@@ -54,7 +53,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/project/:id" element={<ProjectDetail />} />
-              <Route path="/admin/*" element={<AdminDashboard />} />
             </Routes>
           </div>
         )}
