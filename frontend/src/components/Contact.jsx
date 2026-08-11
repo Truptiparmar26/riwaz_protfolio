@@ -27,11 +27,7 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const API_URL = import.meta.env.MODE === 'development'
-        ? 'http://localhost:5000/api/v1/contact'
-        : 'https://riwaz-protfolioo.onrender.com/api/v1/contact';
-
-      const response = await fetch(API_URL, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
