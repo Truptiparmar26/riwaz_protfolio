@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 const { validationResult } = require('express-validator');
-const Contact = require('../models/Contact');
 
 exports.submitContactForm = async (req, res) => {
   try {
@@ -12,16 +11,7 @@ exports.submitContactForm = async (req, res) => {
 
     const { name, email, phone, subject, message } = req.body;
 
-    // 2. Save enquiry to MongoDB securely
-    const newContact = await Contact.create({
-      name,
-      email,
-      phone: phone || 'Not provided',
-      subject,
-      message,
-    });
-
-    // 3. Create Nodemailer transporter using secure environment variables
+    // 2. Create Nodemailer transporter using secure environment variables
     const transporter = nodemailer.createTransport({
       service: process.env.EMAIL_SERVICE || 'gmail',
       auth: {
@@ -122,7 +112,6 @@ Website Contact Form Notification
   } catch (error) {
     console.error('Contact Form Submission Error:', error);
     
-    // Even if email fails, if we reached here, MongoDB save likely succeeded.
     // We return a generic error message so internal details aren't leaked.
     res.status(500).json({
       success: false,
