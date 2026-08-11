@@ -118,7 +118,7 @@ Website Contact Form Notification
     return res.status(500).json({
       success: false,
       message: 'Unable to send your message right now. Please try again.',
-      debug_error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      debug_error: error.message
     });
   }
 }

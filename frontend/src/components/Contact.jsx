@@ -42,7 +42,8 @@ const Contact = () => {
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
         setTimeout(() => setShowToast(false), 5000);
       } else {
-        setErrorMessage(data.message || 'Unable to send your message right now. Please try again.');
+        console.error("Backend Error Details:", data.debug_error);
+        setErrorMessage(data.debug_error || data.message || 'Unable to send your message right now. Please try again.');
         setErrorToast(true);
         setTimeout(() => setErrorToast(false), 5000);
       }
