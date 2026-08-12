@@ -43,10 +43,10 @@ const CTA = () => {
             START A PROJECT &rarr;
           </a>
           <a 
-            href="#work" 
+            href="#gallery" 
             className="px-8 py-4 border border-charcoal text-warm-white font-heading tracking-widest uppercase text-sm hover:border-gold hover:text-gold transition-colors duration-300 w-full sm:w-auto"
           >
-            VIEW MY WORK
+            VIEW MY GALLERY
           </a>
         </motion.div>
       </div>

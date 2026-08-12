@@ -73,11 +73,11 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <Link to="/" className="flex items-center shrink-0 gap-3 group">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center bg-black border border-gold/20 shadow-[0_0_10px_rgba(212,175,55,0.15)] group-hover:border-gold/50 transition-colors duration-500 overflow-hidden">
+            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center shrink-0">
               <img 
-                src="/logo.png" 
+                src="/favicon.png" 
                 alt="RS Logo" 
-                className="w-full h-full object-contain scale-[1.25] -translate-y-[4%] group-hover:scale-[1.35] transition-transform duration-500"
+                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
               />
             </div>
             <div className="flex flex-col justify-center">

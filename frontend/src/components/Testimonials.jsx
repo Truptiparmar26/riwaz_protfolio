@@ -68,7 +68,7 @@ const Testimonials = () => {
 
         <div className="flex flex-col items-center">
           
-          <div className="w-full max-w-4xl relative h-[300px] md:h-[250px]">
+          <div className="w-full max-w-4xl relative h-[450px] sm:h-[350px] md:h-[280px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -76,7 +76,7 @@ const Testimonials = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute inset-0 bg-secondary-black p-8 md:p-12 border border-charcoal rounded-2xl shadow-xl flex flex-col justify-center"
+                className="absolute inset-0 bg-secondary-black p-6 md:p-12 border border-charcoal rounded-2xl shadow-xl flex flex-col justify-center"
               >
                 <div className="flex text-gold mb-6 justify-center md:justify-start">
                   {[...Array(mockTestimonials[currentIndex].rating)].map((_, i) => (

@@ -43,17 +43,24 @@ const Footer = () => {
             <p className="text-muted-purple font-light text-sm leading-relaxed mb-8 pr-4">
               Turning fleeting moments into timeless visuals. We specialize in high-end retouching, color grading, and bringing your creative vision to life.
             </p>
-            <div className="inline-flex items-center gap-4 bg-glass border border-charcoal rounded-2xl px-5 py-3">
-              <FaRegClock className="text-muted-purple text-lg shrink-0" />
-              <div className="flex flex-col">
-                <span className="text-[10px] text-muted-purple uppercase tracking-widest mb-0.5">
-                  Gujarat, India: <span className="text-warm-white font-medium">{timeString}</span>
-                </span>
-                <span className="text-[10px] text-warm-white font-bold uppercase tracking-widest">
-                  IST
+            <div className="inline-flex items-center gap-4 bg-secondary-black/30 backdrop-blur-md border border-charcoal/60 rounded-full px-6 py-2.5 hover:border-gold/30 hover:bg-secondary-black/50 transition-all duration-500 shadow-lg group">
+              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-primary-black border border-charcoal/80 text-muted-purple group-hover:text-gold transition-colors duration-500 shadow-inner shrink-0">
+                <FaRegClock size={16} />
+              </div>
+              <div className="flex flex-col justify-center pr-2">
+                <div className="flex items-center gap-2 mb-1">
+                   <span className="text-[9px] text-muted-purple uppercase tracking-[0.2em] font-bold">
+                     Gujarat, India (IST)
+                   </span>
+                   <span className="relative flex h-1.5 w-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                  </span>
+                </div>
+                <span className="text-[15px] font-heading tracking-widest text-warm-white leading-none">
+                  {timeString}
                 </span>
               </div>
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-2 shadow-[0_0_8px_rgba(16,185,129,0.6)] shrink-0"></div>
             </div>
           </div>
 
@@ -141,8 +148,7 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Riwaz Studio. All Rights Reserved.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 items-center">
-            <a href="#" className="hover:text-warm-white transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="hover:text-warm-white transition-colors duration-300">Terms of Service</a>
+
             <button 
               onClick={scrollToTop}
               className="ml-0 sm:ml-4 flex items-center gap-2 text-warm-white hover:text-[#d4af37] transition-colors duration-300 focus:outline-none group"
