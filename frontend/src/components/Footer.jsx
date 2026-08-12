@@ -34,9 +34,9 @@ const Footer = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-gold/5 blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-16">
           {/* Brand Section */}
-          <div className="lg:col-span-1">
+          <div className="w-full lg:w-[40%] lg:pr-12">
             <h2 className="text-3xl font-heading text-warm-white tracking-widest uppercase mb-6">
               RIWAZ<span className="text-gold">.</span>
             </h2>
@@ -65,79 +65,73 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-warm-white font-heading text-lg tracking-widest uppercase mb-6">Explore</h3>
-            <ul className="space-y-4">
-              <li>
-                <a href="#about" className="text-muted-purple hover:text-gold text-sm font-light transition-colors duration-300 flex items-center gap-2 group">
-                  <span className="w-2 h-[1px] bg-gold/0 group-hover:bg-gold transition-all duration-300"></span>
-                  About Studio
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-muted-purple hover:text-gold text-sm font-light transition-colors duration-300 flex items-center gap-2 group">
-                  <span className="w-2 h-[1px] bg-gold/0 group-hover:bg-gold transition-all duration-300"></span>
-                  Our Services
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" className="text-muted-purple hover:text-gold text-sm font-light transition-colors duration-300 flex items-center gap-2 group">
-                  <span className="w-2 h-[1px] bg-gold/0 group-hover:bg-gold transition-all duration-300"></span>
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-muted-purple hover:text-gold text-sm font-light transition-colors duration-300 flex items-center gap-2 group">
-                  <span className="w-2 h-[1px] bg-gold/0 group-hover:bg-gold transition-all duration-300"></span>
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+          <div className="w-full lg:w-[20%] flex flex-col md:items-center lg:items-start">
+            <div className="w-fit">
+              <h3 className="text-warm-white font-heading text-lg tracking-widest uppercase mb-6 md:text-center lg:text-left">Explore</h3>
+              <ul className="space-y-4 flex flex-col md:items-center lg:items-start">
+                <li>
+                  <a href="#about" className="text-muted-purple hover:text-gold text-sm font-light transition-colors duration-300 flex items-center gap-2 group">
+                    <span className="w-2 h-[1px] bg-gold/0 group-hover:bg-gold transition-all duration-300"></span>
+                    About Studio
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="text-muted-purple hover:text-gold text-sm font-light transition-colors duration-300 flex items-center gap-2 group">
+                    <span className="w-2 h-[1px] bg-gold/0 group-hover:bg-gold transition-all duration-300"></span>
+                    Our Services
+                  </a>
+                </li>
+                <li>
+                  <a href="#gallery" className="text-muted-purple hover:text-gold text-sm font-light transition-colors duration-300 flex items-center gap-2 group">
+                    <span className="w-2 h-[1px] bg-gold/0 group-hover:bg-gold transition-all duration-300"></span>
+                    Portfolio
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-muted-purple hover:text-gold text-sm font-light transition-colors duration-300 flex items-center gap-2 group">
+                    <span className="w-2 h-[1px] bg-gold/0 group-hover:bg-gold transition-all duration-300"></span>
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Contact Info */}
-          <div className="lg:col-span-2">
-            <h3 className="text-warm-white font-heading text-xl tracking-[0.15em] uppercase mb-8">Get In Touch</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-12">
-              <a href="mailto:riwazstudioofficial@gmail.com" className="group flex items-start gap-5">
-                <div className="w-[50px] h-[50px] min-w-[50px] rounded-full bg-secondary-black border border-charcoal flex items-center justify-center text-[#d4af37] group-hover:bg-secondary-black transition-colors duration-300 shrink-0">
-                  <FaEnvelope size={16} />
-                </div>
-                <div className="pt-0.5">
-                  <span className="block text-[11px] text-muted-purple uppercase tracking-[0.2em] mb-1.5 font-medium">Email</span>
-                  <span className="text-[15px] text-warm-white group-hover:text-warm-white transition-colors duration-300 font-light tracking-wide break-all">riwazstudioofficial@gmail.com</span>
-                </div>
+          {/* Start a Project */}
+          <div className="w-full lg:w-[30%] flex flex-col md:items-center lg:items-start">
+            <div className="w-full max-w-sm flex flex-col md:items-center lg:items-start">
+              <h3 className="text-warm-white font-heading text-lg tracking-widest uppercase mb-6 md:text-center lg:text-left">Start a Project</h3>
+              
+              <p className="text-muted-purple font-light text-sm mb-8 leading-relaxed md:text-center lg:text-left">
+                Ready to bring your creative vision to life? We are currently taking on new projects and would love to hear from you.
+              </p>
+              
+              <a href="#contact" className="inline-flex items-center gap-4 border border-charcoal/80 text-warm-white hover:text-primary-black hover:bg-gold hover:border-gold px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-500 mb-12 group">
+                Let's Talk
+                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
-
-              <a href="tel:+918780464627" className="group flex items-start gap-5">
-                <div className="w-[50px] h-[50px] min-w-[50px] rounded-full bg-secondary-black border border-charcoal flex items-center justify-center text-[#d4af37] group-hover:bg-secondary-black transition-colors duration-300 shrink-0">
-                  <FaPhoneAlt size={16} />
+              
+              {/* Minimal Social Links */}
+              <div className="flex flex-col md:items-center lg:items-start w-full">
+                <h4 className="text-warm-white font-heading text-xs tracking-[0.2em] uppercase mb-5 opacity-70">Follow Us</h4>
+                <div className="flex gap-4">
+                  <a href="https://instagram.com/riwazstudio_" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-charcoal/50 flex items-center justify-center text-muted-purple hover:text-primary-black hover:bg-gold hover:border-gold transition-all duration-500" aria-label="Instagram">
+                    <FaInstagram size={16} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/tejas-vasani-982355424" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-charcoal/50 flex items-center justify-center text-muted-purple hover:text-primary-black hover:bg-gold hover:border-gold transition-all duration-500" aria-label="LinkedIn">
+                    <FaLinkedin size={16} />
+                  </a>
+                  <a href="https://wa.me/918780464627" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-charcoal/50 flex items-center justify-center text-muted-purple hover:text-primary-black hover:bg-gold hover:border-gold transition-all duration-500" aria-label="WhatsApp">
+                    <FaWhatsapp size={16} />
+                  </a>
+                  <a href="mailto:riwazstudioofficial@gmail.com" className="w-10 h-10 rounded-full border border-charcoal/50 flex items-center justify-center text-muted-purple hover:text-primary-black hover:bg-gold hover:border-gold transition-all duration-500" aria-label="Email">
+                    <FaEnvelope size={16} />
+                  </a>
+                  <a href="tel:+918780464627" className="w-10 h-10 rounded-full border border-charcoal/50 flex items-center justify-center text-muted-purple hover:text-primary-black hover:bg-gold hover:border-gold transition-all duration-500" aria-label="Phone">
+                    <FaPhoneAlt size={16} />
+                  </a>
                 </div>
-                <div className="pt-0.5">
-                  <span className="block text-[11px] text-muted-purple uppercase tracking-[0.2em] mb-1.5 font-medium">Call Us</span>
-                  <span className="text-[15px] text-warm-white group-hover:text-warm-white transition-colors duration-300 font-light tracking-wide">+91 87804 64627</span>
-                </div>
-              </a>
-
-              <a href="https://wa.me/918780464627" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-5">
-                <div className="w-[50px] h-[50px] min-w-[50px] rounded-full bg-secondary-black border border-charcoal flex items-center justify-center text-[#d4af37] group-hover:bg-secondary-black transition-colors duration-300 shrink-0">
-                  <FaWhatsapp size={18} />
-                </div>
-                <div className="pt-0.5">
-                  <span className="block text-[11px] text-muted-purple uppercase tracking-[0.2em] mb-1.5 font-medium">WhatsApp</span>
-                  <span className="text-[15px] text-warm-white group-hover:text-warm-white transition-colors duration-300 font-light tracking-wide">+91 87804 64627</span>
-                </div>
-              </a>
-
-              <a href="https://instagram.com/riwazstudio_" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-5">
-                <div className="w-[50px] h-[50px] min-w-[50px] rounded-full bg-secondary-black border border-charcoal flex items-center justify-center text-[#d4af37] group-hover:bg-secondary-black transition-colors duration-300 shrink-0">
-                  <FaInstagram size={18} />
-                </div>
-                <div className="pt-0.5">
-                  <span className="block text-[11px] text-muted-purple uppercase tracking-[0.2em] mb-1.5 font-medium">Instagram</span>
-                  <span className="text-[15px] text-warm-white group-hover:text-warm-white transition-colors duration-300 font-light tracking-wide">@riwazstudio_</span>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
