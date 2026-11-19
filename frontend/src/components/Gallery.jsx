@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiOutlineZoomIn, HiX } from 'react-icons/hi';
+import { HiOutlineZoomIn, HiX, HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 // Premium cinematic easing curve
 const premiumEase = [0.76, 0, 0.24, 1];
@@ -36,20 +36,85 @@ const mockGallery = [
   { id: 27, title: 'The Royal Swag Entry', category: 'Wedding', image: '/gallery/wedding/wedding-groom-katar-entry.webp', aspect: 1.5 },
   { id: 28, title: 'Tender Kiss of Love', category: 'Wedding', image: '/gallery/wedding/wedding-couple-kiss-cheek.webp', aspect: 1.5 },
   { id: 29, title: 'Seated in Royalty', category: 'Wedding', image: '/gallery/wedding/wedding-bride-seated-grace.webp', aspect: 1.33 },
-  { id: 30, title: 'Golden Hour Love', category: 'Pre-Wedding', image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
-  { id: 31, title: 'She Said Yes', category: 'Engagement', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
-  { id: 32, title: 'Welcoming Joy', category: 'Baby Shower', image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
-  { id: 33, title: 'Maldives Memories', category: 'Post-Wedding', image: 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
-  { id: 34, title: 'Sangeet Night', category: 'Events', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
-  { id: 35, title: 'Vintage Romance', category: 'Pre-Wedding', image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
-  { id: 36, title: 'Maternity Glow', category: 'Baby Shower', image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
+  { id: 30, title: 'Tropical Grove Stroll', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-banana-grove-walk.webp', aspect: 1.78 },
+  { id: 31, title: 'Nature\'s Grace', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-bride-banana-leaf.webp', aspect: 1.78 },
+  { id: 32, title: 'Footsteps in the Sand', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-beach-stroll-hand-in-hand.webp', aspect: 1.78 },
+  { id: 33, title: 'Hand in Hand by Fort', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-saree-beach-backview.webp', aspect: 1.78 },
+  { id: 34, title: 'Whispering Waves', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-beach-romance-portrait.webp', aspect: 1.78 },
+  { id: 35, title: 'Warmth of Twilight', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-intimate-beach-whisper.webp', aspect: 1.78 },
+  { id: 36, title: 'By the Rocky Shore', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-rocks-hand-in-hand.webp', aspect: 1.5 },
+  { id: 37, title: 'Golden Shoreline', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-shoreline-candid-walk.webp', aspect: 1.78 },
+  { id: 38, title: 'By the Ocean Edge', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-rocky-shore-embrace.webp', aspect: 1.78 },
+  { id: 39, title: 'Serene Coastal Portrait', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-groom-sitting-bride-standing.webp', aspect: 1.5 },
+  { id: 40, title: 'Coastal Whispers', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-coastal-breeze-couple.webp', aspect: 1.78 },
+  { id: 41, title: 'Tender Currents', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-gentle-seaside-moment.webp', aspect: 1.78 },
+  { id: 42, title: 'Warmth of Hearts', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-close-intimate-forehead.webp', aspect: 1.5 },
+  { id: 43, title: 'Twilight Promise', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-sunset-silhouette-twilight.webp', aspect: 1.78 },
+  { id: 44, title: 'Laughing by the Ruins', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-stone-bench-laughter.webp', aspect: 1.5 },
+  { id: 45, title: 'Rockside Romance', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-sitting-rocks-together.webp', aspect: 1.5 },
+  { id: 46, title: 'Historic Wall Walk', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-fort-wall-walk.webp', aspect: 0.67 },
+  { id: 47, title: 'Seaside Embrace', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-sitting-rock-intimate.webp', aspect: 1.5 },
+  { id: 48, title: 'Beyond the Horizon', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-ocean-horizon-gaze.webp', aspect: 0.56 },
+  { id: 49, title: 'Gentle Support', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-leaning-on-shoulder-rocks.webp', aspect: 1.5 },
+  { id: 50, title: 'Tidal Joy', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-water-splash-laughter.webp', aspect: 0.56 },
+  { id: 51, title: 'Silent Promise', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-forehead-touch-beach.webp', aspect: 0.67 },
+  { id: 52, title: 'Calm Waters', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-serene-sea-reflection.webp', aspect: 0.56 },
+  { id: 53, title: 'Echoes of the Sea', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-waves-and-laughter.webp', aspect: 0.56 },
+  { id: 54, title: 'Tender Gaze', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-beach-tender-gaze.webp', aspect: 0.56 },
+  { id: 55, title: 'Looking to Tomorrow', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-pointing-horizon.webp', aspect: 0.56 },
+  { id: 56, title: 'Infinite Horizon', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-sand-and-sky-panorama.webp', aspect: 0.56 },
+  { id: 57, title: 'Casual Shoreline Steps', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-casual-beach-walk.webp', aspect: 0.56 },
+  { id: 58, title: 'Sunset by the Tide', category: 'Pre-Wedding', image: '/gallery/prewedding/prewedding-seaside-sunset-embrace.webp', aspect: 0.56 },
+  { id: 59, title: 'His Voice, His Magic', category: 'Post', image: '/gallery/post/post-singer-his-voice-his-magic.webp', aspect: 1.25 },
+  { id: 60, title: 'First Birthday Cruise', category: 'Post', image: '/gallery/post/post-birthday-police-car-night.webp', aspect: 1.25 },
+  { id: 61, title: 'Evan One Year', category: 'Post', image: '/gallery/post/post-evan-one-year-milestone.webp', aspect: 1.25 },
+  { id: 62, title: 'Tiny Hands, Big Dreams', category: 'Post', image: '/gallery/post/post-baby-shower-tiny-hands.webp', aspect: 1.25 },
+  { id: 63, title: 'Stage Magic', category: 'Post', image: '/gallery/post/post-concert-stage-magic.webp', aspect: 1.25 },
+  { id: 64, title: 'Live Performance Poster', category: 'Post', image: '/gallery/post/post-kaushik-bharwad-live.webp', aspect: 1.25 },
+  { id: 65, title: 'Griha Pravesh', category: 'Post', image: '/gallery/post/post-griha-pravesh-blessings.webp', aspect: 1.25 },
+  { id: 66, title: 'A Sacred Beginning', category: 'Post', image: '/gallery/post/post-vastu-pujan-sacred-beginning.webp', aspect: 1.25 },
+  { id: 67, title: 'A Little Miracle', category: 'Post', image: '/gallery/post/post-maternity-little-miracle.webp', aspect: 1.25 },
+  { id: 68, title: 'Kaushik Bharwad', category: 'Post', image: '/gallery/post/post-kaushik-bharwad-singer-portrait.webp', aspect: 1.25 },
+  { id: 69, title: 'Little Blessing', category: 'Post', image: '/gallery/post/post-first-birthday-little-blessing.webp', aspect: 1.25 },
+  { id: 70, title: 'Maternity Journey', category: 'Post', image: '/gallery/post/post-maternity-transformation.webp', aspect: 1.25 },
+  { id: 71, title: 'Moments in Love', category: 'Post', image: '/gallery/post/post-couple-moments-komal-mitesh.webp', aspect: 1.25 },
+  { id: 72, title: 'Heartbeat', category: 'Post', image: '/gallery/post/post-maternity-heartbeat.webp', aspect: 1.25 },
+  { id: 73, title: 'Motherhood', category: 'Post', image: '/gallery/post/post-motherhood-journey.webp', aspect: 1.25 },
+  { id: 74, title: 'Touch of Love', category: 'Post', image: '/gallery/post/post-touch-dharmesh-nidhi.webp', aspect: 1.25 },
+  { id: 75, title: 'Connected Souls', category: 'Post', image: '/gallery/post/post-connected-dharmesh-nidhi.webp', aspect: 1.25 },
+  { id: 76, title: 'Fairytale Choice', category: 'Post', image: '/gallery/post/post-dharmistha-ronit-fairytale.webp', aspect: 1.25 },
+  { id: 77, title: 'The Regal Groom', category: 'Post', image: '/gallery/post/post-the-groom-regal-collage.webp', aspect: 1.25 },
+  { id: 78, title: 'Beautiful Bride', category: 'Post', image: '/gallery/post/post-beautiful-minaxi-bride.webp', aspect: 1.25 },
+  { id: 79, title: 'Two Hearts, One Soul', category: 'Post', image: '/gallery/post/post-two-hearts-one-soul.webp', aspect: 1.25 },
+  { id: 80, title: 'Grace in Stillness', category: 'Post', image: '/gallery/post/post-minaxi-grace-portrait.webp', aspect: 1.25 },
+  { id: 81, title: 'Wedding Joy Car', category: 'Post', image: '/gallery/post/post-riwaz-studio-car-cheer.webp', aspect: 1.25 },
+  { id: 82, title: 'Ray of Sunshine', category: 'Post', image: '/gallery/post/post-ray-of-sunshine-bride.webp', aspect: 1.25 },
+  { id: 83, title: 'His Queen', category: 'Post', image: '/gallery/post/post-queen-fiancee-fairytale.webp', aspect: 1.25 },
+  { id: 84, title: 'Rings of Forever', category: 'Post', image: '/gallery/post/post-dharmistha-ronit-rings.webp', aspect: 1.25 },
+  { id: 85, title: 'Momentous Elegance', category: 'Post', image: '/gallery/post/post-momentous-bridal-elegance.webp', aspect: 1.25 },
+  { id: 86, title: "Kajal's Baby Shower", category: 'Post', image: '/gallery/post/post-kajals-baby-shower.webp', aspect: 1.25 },
+  { id: 87, title: 'Beloved Chapter', category: 'Post', image: '/gallery/post/post-beloved-maternity-blessing.webp', aspect: 1.25 },
+  { id: 88, title: 'Quiet Charm', category: 'Post', image: '/gallery/post/post-nidhi-dharmesh-crimson-elegance.webp', aspect: 1.25 },
+  { id: 89, title: 'The Groom Look', category: 'Post', image: '/gallery/post/post-groom-look-elegance.webp', aspect: 1.25 },
+  { id: 90, title: 'Groom Divyesh', category: 'Post', image: '/gallery/post/post-groom-divyesh-ghodi.webp', aspect: 1.25 },
+  { id: 91, title: 'Regal Smile', category: 'Post', image: '/gallery/post/post-groom-smile-sherwani.webp', aspect: 1.25 },
+  { id: 92, title: 'My Forever', category: 'Post', image: '/gallery/post/post-my-forever-connection.webp', aspect: 1.25 },
+  { id: 93, title: 'Bhavya Prem', category: 'Post', image: '/gallery/post/post-bhavya-prem-holding-hands.webp', aspect: 1.25 },
+  { id: 94, title: 'One Journey', category: 'Post', image: '/gallery/post/post-two-hearts-one-journey.webp', aspect: 1.25 },
+  { id: 95, title: 'Nisha & Bhavesh', category: 'Post', image: '/gallery/post/post-nisha-bhavesh-wedding-story.webp', aspect: 1.25 },
+  { id: 96, title: 'Dhaval & Shital', category: 'Post', image: '/gallery/post/post-dhaval-shital-closeness.webp', aspect: 1.25 },
+  { id: 97, title: 'Two Souls', category: 'Post', image: '/gallery/post/post-two-souls-complete.webp', aspect: 1.25 },
+  { id: 98, title: 'She Said Yes', category: 'Engagement', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
+  { id: 99, title: 'Welcoming Joy', category: 'Baby Shower', image: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
+  { id: 100, title: 'Sangeet Night', category: 'Events', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
+  { id: 101, title: 'Maternity Glow', category: 'Baby Shower', image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
 ];
 
-const categories = ['All', 'Wedding', 'Pre-Wedding', 'Post-Wedding', 'Engagement', 'Baby Shower', 'Events'];
+const categories = ['All', 'Wedding', 'Pre-Wedding', 'Post', 'Engagement', 'Baby Shower', 'Events'];
 
 const Gallery = () => {
   const [filter, setFilter] = useState('All');
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [columnsCount, setColumnsCount] = useState(3);
 
   // Responsive column count listener
@@ -69,24 +134,50 @@ const Gallery = () => {
     return () => window.removeEventListener('resize', updateColumns);
   }, []);
 
-  // Keyboard navigation for lightbox
+  const filteredImages = useMemo(() => {
+    return filter === 'All' 
+      ? mockGallery 
+      : mockGallery.filter(img => img.category === filter);
+  }, [filter]);
+
+  // Close lightbox if filter changes
+  useEffect(() => {
+    setSelectedIndex(null);
+  }, [filter]);
+
+  // Keyboard navigation for lightbox (ArrowLeft, ArrowRight, Escape)
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setSelectedImage(null);
+      if (selectedIndex === null) return;
+      if (e.key === 'Escape') setSelectedIndex(null);
+      if (e.key === 'ArrowLeft' && selectedIndex > 0) {
+        setSelectedIndex(prev => prev - 1);
+      }
+      if (e.key === 'ArrowRight' && selectedIndex < filteredImages.length - 1) {
+        setSelectedIndex(prev => prev + 1);
+      }
     };
-    if (selectedImage) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
+    window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImage]);
+  }, [selectedIndex, filteredImages.length]);
 
-  const filteredImages = filter === 'All' 
-    ? mockGallery 
-    : mockGallery.filter(img => img.category === filter);
+  const handlePrev = (e) => {
+    if (e) e.stopPropagation();
+    if (selectedIndex !== null && selectedIndex > 0) {
+      setSelectedIndex(prev => prev - 1);
+    }
+  };
 
-  // Exact Height-Balanced Distribution Algorithm:
-  // Uses actual aspect ratios to dynamically place each photo into the shortest column.
-  // This guarantees that all 3 columns reach the exact same bottom line together!
+  const handleNext = (e) => {
+    if (e) e.stopPropagation();
+    if (selectedIndex !== null && selectedIndex < filteredImages.length - 1) {
+      setSelectedIndex(prev => prev + 1);
+    }
+  };
+
+  const selectedImage = selectedIndex !== null ? filteredImages[selectedIndex] : null;
+
+  // Exact Height-Balanced Distribution Algorithm
   const columnData = useMemo(() => {
     const cols = Array.from({ length: columnsCount }, () => []);
     const colHeights = Array(columnsCount).fill(0);
@@ -94,7 +185,6 @@ const Gallery = () => {
     filteredImages.forEach((img) => {
       const ratio = img.aspect || 1.0;
 
-      // Find the currently shortest column
       let shortestCol = 0;
       for (let i = 1; i < columnsCount; i++) {
         if (colHeights[i] < colHeights[shortestCol]) {
@@ -160,7 +250,7 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Balanced Responsive Masonry Grid (Perfect Bottom Alignment) */}
+        {/* Balanced Responsive Masonry Grid (Clean - No Text on Photos) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {columnData.map((colImages, colIndex) => (
             <div key={colIndex} className="flex flex-col gap-6">
@@ -174,7 +264,10 @@ const Gallery = () => {
                     transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                     key={img.id}
                     className="relative overflow-hidden rounded-xl group cursor-pointer shadow-xl bg-primary-black border border-charcoal/40 hover:border-gold/60 transition-all duration-500"
-                    onClick={() => setSelectedImage(img)}
+                    onClick={() => {
+                      const idx = filteredImages.findIndex(item => item.id === img.id);
+                      setSelectedIndex(idx !== -1 ? idx : 0);
+                    }}
                   >
                     <div className="relative overflow-hidden w-full bg-charcoal/10">
                       <img 
@@ -190,22 +283,10 @@ const Gallery = () => {
                       />
                     </div>
                     
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8 pointer-events-none">
-                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <span className="text-gold text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1.5 block">
-                          {img.category}
-                        </span>
-                        <h3 className="text-xl md:text-2xl font-heading text-warm-white">
-                          {img.title}
-                        </h3>
-                      </div>
-                      
-                      {/* Zoom Icon */}
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-75 ease-out scale-75 group-hover:scale-100">
-                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center border border-gold/50 shadow-2xl">
-                          <HiOutlineZoomIn className="text-gold text-xl md:text-2xl" />
-                        </div>
+                    {/* Clean Minimal Hover Overlay (Without Any Text) */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center border border-gold/60 shadow-2xl transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                        <HiOutlineZoomIn className="text-gold text-xl md:text-2xl" />
                       </div>
                     </div>
                   </motion.div>
@@ -216,30 +297,55 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox With Next / Previous Navigation Arrows */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedImage && selectedIndex !== null && (
           <motion.div 
-            className="fixed inset-0 z-[100] bg-primary-black/98 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-pointer"
+            className="fixed inset-0 z-[100] bg-primary-black/98 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-pointer select-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            onClick={() => setSelectedImage(null)}
+            transition={{ duration: 0.3 }}
+            onClick={() => setSelectedIndex(null)}
           >
+            {/* Top Right: Close Button */}
             <button 
-              className="absolute top-6 right-6 md:top-10 md:right-10 text-muted-purple hover:text-gold transition-colors z-[110] bg-black/30 p-2.5 rounded-full backdrop-blur-md border border-charcoal/80 cursor-pointer"
-              onClick={() => setSelectedImage(null)}
+              className="absolute top-6 right-6 md:top-8 md:right-10 text-muted-purple hover:text-gold transition-colors z-[120] bg-black/30 hover:bg-black/60 p-2.5 rounded-full backdrop-blur-md border border-charcoal/80 cursor-pointer"
+              onClick={() => setSelectedIndex(null)}
               aria-label="Close Lightbox"
             >
-              <HiX size={28} />
+              <HiX size={26} />
             </button>
             
+            {/* Previous Arrow Button (Hidden on First Image) */}
+            {selectedIndex > 0 && (
+              <button 
+                className="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 text-warm-white hover:text-gold transition-all duration-300 z-[120] bg-black/50 hover:bg-black/80 p-3 md:p-4 rounded-full backdrop-blur-md border border-charcoal/80 hover:border-gold/60 cursor-pointer shadow-2xl hover:scale-110 active:scale-95"
+                onClick={handlePrev}
+                aria-label="Previous Image"
+              >
+                <HiChevronLeft className="text-2xl md:text-3xl" />
+              </button>
+            )}
+
+            {/* Next Arrow Button (Hidden on Last Image) */}
+            {selectedIndex < filteredImages.length - 1 && (
+              <button 
+                className="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 text-warm-white hover:text-gold transition-all duration-300 z-[120] bg-black/50 hover:bg-black/80 p-3 md:p-4 rounded-full backdrop-blur-md border border-charcoal/80 hover:border-gold/60 cursor-pointer shadow-2xl hover:scale-110 active:scale-95"
+                onClick={handleNext}
+                aria-label="Next Image"
+              >
+                <HiChevronRight className="text-2xl md:text-3xl" />
+              </button>
+            )}
+
+            {/* Center: Image Display (No Text) */}
             <div 
               className="relative w-full h-full flex flex-col items-center justify-center max-w-7xl mx-auto cursor-default"
               onClick={(e) => e.stopPropagation()}
             >
               <motion.img 
+                key={selectedImage.id}
                 src={selectedImage.image} 
                 alt={selectedImage.title}
                 onError={(e) => {
@@ -247,26 +353,18 @@ const Gallery = () => {
                     e.currentTarget.src = e.currentTarget.src.replace(/\.webp$/, '.jpg');
                   }
                 }}
-                className="max-w-full max-h-[75vh] md:max-h-[85vh] object-contain shadow-2xl rounded-lg border border-charcoal/30"
-                initial={{ scale: 0.95, opacity: 0, y: 15 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, ease: premiumEase }}
+                className="max-w-full max-h-[82vh] md:max-h-[88vh] object-contain shadow-2xl rounded-lg border border-charcoal/30 select-none"
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, ease: premiumEase }}
               />
-              <motion.div 
-                className="mt-6 md:mt-8 text-center"
-                initial={{ y: 15, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.15, duration: 0.5, ease: premiumEase }}
-              >
-                <h3 className="text-2xl md:text-4xl font-heading text-warm-white mb-2">{selectedImage.title}</h3>
-                <span className="text-gold text-[10px] md:text-xs font-bold uppercase tracking-[0.3em]">{selectedImage.category}</span>
-              </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </section>
-  );
+  ); 
 };
 
 export default Gallery;
