@@ -134,7 +134,28 @@ const mockGallery = [
   { id: 125, title: 'Together in Love', category: 'Baby Shower', image: '/gallery/babyshower/babyshower-couple-staircase-gaze.webp', aspect: 1.5 },
   { id: 126, title: 'Family Blessing', category: 'Baby Shower', image: '/gallery/babyshower/babyshower-family-portrait-daughter.webp', aspect: 1.5 },
   { id: 127, title: 'Sisterly Joy', category: 'Baby Shower', image: '/gallery/babyshower/babyshower-mother-daughter-laughter.webp', aspect: 1.5 },
-  { id: 128, title: 'Sangeet Night', category: 'Events', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1920&auto=format&fit=crop', aspect: 0.67 },
+  { id: 128, title: 'Folk Energy', category: 'Events', image: '/gallery/events/events-folk-singer-stage-dance.webp', aspect: 1.5, cols: { 3: 0 } },
+  { id: 129, title: 'Electric Beats', category: 'Events', image: '/gallery/events/events-dj-artist-profile-colors.webp', aspect: 1.5, cols: { 3: 1 } },
+  { id: 130, title: 'Griha Pravesh Steps', category: 'Events', image: '/gallery/events/events-griha-pravesh-kumkum-footsteps.webp', aspect: 1.5, cols: { 3: 2 } },
+  { id: 131, title: 'Neon Shadows', category: 'Events', image: '/gallery/events/events-party-crowd-silhouette-laser.webp', aspect: 0.67, cols: { 3: 0 } },
+  { id: 132, title: 'Warlock Arena', category: 'Events', image: '/gallery/events/events-dj-stage-warlock-cube-screen.webp', aspect: 0.67, cols: { 3: 1 } },
+  { id: 133, title: 'Sonic Dimension', category: 'Events', image: '/gallery/events/events-dj-radial-led-stage-burst.webp', aspect: 0.484, cols: { 3: 2 } },
+  { id: 134, title: 'Live Serenade', category: 'Events', image: '/gallery/events/events-live-concert-singer-performance.webp', aspect: 1.5, cols: { 3: 0 } },
+  { id: 135, title: 'Midnight Pulse', category: 'Events', image: '/gallery/events/events-dj-warlock-neon-console.webp', aspect: 1.5, cols: { 3: 1 } },
+  { id: 136, title: 'Voice of Passion', category: 'Events', image: '/gallery/events/events-folk-singer-passionate-high-note.webp', aspect: 1.5, cols: { 3: 2 } },
+  { id: 137, title: 'Red Light Rhythm', category: 'Events', image: '/gallery/events/events-dj-red-spotlight-headphones-console.webp', aspect: 0.67, cols: { 3: 0 } },
+  { id: 138, title: 'Concert Euphoria', category: 'Events', image: '/gallery/events/events-concert-crowd-truss-lighting.webp', aspect: 0.67, cols: { 3: 1 } },
+  { id: 139, title: 'Divine Jalabhishek', category: 'Events', image: '/gallery/events/events-couple-jalabhishek-puja-urli.webp', aspect: 0.484, cols: { 3: 2 } },
+  { id: 140, title: 'Soulful Melody', category: 'Events', image: '/gallery/events/events-singer-profile-mic-passion.webp', aspect: 1.5, cols: { 3: 0 } },
+  { id: 141, title: 'The Turntable Vibe', category: 'Events', image: '/gallery/events/events-dj-mixing-cyan-spotlight.webp', aspect: 1.5, cols: { 3: 1 } },
+  { id: 142, title: 'Melodic Joy', category: 'Events', image: '/gallery/events/events-folk-singer-smiling-stage.webp', aspect: 1.5, cols: { 3: 2 } },
+  { id: 143, title: 'Tunnel of Lights', category: 'Events', image: '/gallery/events/events-dj-console-green-tunnel-screen.webp', aspect: 0.67, cols: { 3: 0 } },
+  { id: 144, title: 'Party on the Floor', category: 'Events', image: '/gallery/events/events-dance-floor-crowd-blue-lights.webp', aspect: 0.67, cols: { 3: 1 } },
+  { id: 145, title: 'Vastu Hawan Ceremony', category: 'Events', image: '/gallery/events/events-vastu-hawan-puja-living-room.webp', aspect: 0.484, cols: { 3: 2 } },
+  { id: 146, title: 'Sacred Kalash Offering', category: 'Events', image: '/gallery/events/events-sacred-coconut-puja-offering.webp', aspect: 1.5, cols: { 3: 0 } },
+  { id: 147, title: 'Holy Shringi Abhishek', category: 'Events', image: '/gallery/events/events-shringi-abhishek-deity-puja.webp', aspect: 1.5, cols: { 3: 1 } },
+  { id: 148, title: 'The Royal Turban Singer', category: 'Events', image: '/gallery/events/events-singer-red-turban-stage.webp', aspect: 1.5, cols: { 3: 2 } },
+  { id: 149, title: 'Shubh Avasar  Footprints', category: 'Events', image: '/gallery/events/events-shubh-avasar-kumkum-footprints.webp', aspect: 0.484, cols: { 3: 2 } },
 ];
 
 const categories = ['All', 'Wedding', 'Pre-Wedding', 'Post', 'Engagement', 'Baby Shower', 'Events'];
@@ -207,8 +228,20 @@ const Gallery = () => {
   // Exact Height-Balanced Distribution Algorithm
   const columnData = useMemo(() => {
     const cols = Array.from({ length: columnsCount }, () => []);
-    const colHeights = Array(columnsCount).fill(0);
 
+    const hasExplicitCols = filteredImages.length > 0 && filteredImages.every(
+      img => typeof img.cols === 'object' && img.cols?.[columnsCount] !== undefined
+    );
+
+    if (hasExplicitCols) {
+      filteredImages.forEach((img) => {
+        const colIdx = (img.cols?.[columnsCount] ?? 0) % columnsCount;
+        cols[colIdx].push(img);
+      });
+      return cols;
+    }
+
+    const colHeights = Array(columnsCount).fill(0);
     filteredImages.forEach((img) => {
       const ratio = img.aspect || 1.0;
 
