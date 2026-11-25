@@ -57,7 +57,7 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading text-warm-white leading-[1.1] tracking-tight mb-8 w-full text-center">
             <motion.span className="block font-black" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
-              Cinematic Editor &
+              Creative Editor &
             </motion.span>
             <motion.span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold via-warm-white to-gold pb-2" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}>
               Visual Storyteller.
@@ -73,10 +73,12 @@ const Hero = () => {
               <span className="text-gold font-bold">›</span>
               <TypeAnimation
                 sequence={[
-                  'Crafting cinematic visuals', 1000,
-                  'Refining your storytelling', 1000,
-                  'Building digital experiences', 1000,
-                  'Turning raw moments into art', 1000,
+                  'Creating Visual Stories', 1000,
+                  'Refining Every Detail', 1000,
+                  'Crafting Timeless Edits', 1000,
+                  'Enhancing Every Frame', 1000,
+                  'Bringing Ideas to Life', 1000,
+                  'Turning Moments Into Memories', 1000,
                 ]}
                 wrapper="span"
                 speed={50}
@@ -85,8 +87,7 @@ const Hero = () => {
               />
             </div>
             <p className="text-xs sm:text-sm md:text-base text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
-              Combining advanced editing techniques, color grading, and motion graphics to build engaging, scalable, and high-performance visual stories.
-            </p>
+Creating and refining visual stories through professional photo editing, cinematic color grading, retouching, and creative visual work.            </p>
           </motion.div>
 
           <motion.div className="flex flex-col sm:flex-row w-full justify-center gap-3 sm:gap-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}>

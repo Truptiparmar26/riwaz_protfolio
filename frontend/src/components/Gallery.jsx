@@ -231,6 +231,21 @@ const Gallery = () => {
 
   const selectedImage = selectedIndex !== null ? filteredImages[selectedIndex] : null;
 
+  // Prevent background scroll and pause Lenis when lightbox is active
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+      window.__lenis?.stop();
+    } else {
+      document.body.style.overflow = '';
+      window.__lenis?.start();
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.__lenis?.start();
+    };
+  }, [selectedImage]);
+
   // Exact Height-Balanced Distribution Algorithm
   const columnData = useMemo(() => {
     const cols = Array.from({ length: columnsCount }, () => []);
@@ -367,7 +382,10 @@ const Gallery = () => {
       <AnimatePresence>
         {selectedImage && selectedIndex !== null && (
           <motion.div 
-            className="fixed inset-0 z-[100] bg-primary-black/98 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-pointer select-none"
+            className="fixed inset-0 z-[100] bg-primary-black/98 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-pointer select-none overscroll-contain"
+            data-lenis-prevent="true"
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

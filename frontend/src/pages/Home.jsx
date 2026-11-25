@@ -2,7 +2,6 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Introduction from '../components/Introduction';
 import About from '../components/About';
-import CreativeSkills from '../components/CreativeSkills';
 import Services from '../components/Services';
 import Gallery from '../components/Gallery';
 import Process from '../components/Process';
@@ -21,7 +20,6 @@ const Home = () => {
       <Hero />
       <Introduction />
       <About />
-      <CreativeSkills />
       <Services />
       <Gallery />
       <Process />

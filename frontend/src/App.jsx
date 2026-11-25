@@ -27,6 +27,8 @@ function App() {
       infinite: false,
     });
 
+    window.__lenis = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -37,6 +39,7 @@ function App() {
     // Preloader takes care of its own timer and calls setLoading(false)
     
     return () => {
+      delete window.__lenis;
       lenis.destroy();
     };
   }, []);
