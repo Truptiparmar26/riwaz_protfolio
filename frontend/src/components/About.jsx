@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   const timelineSteps = [
-    { num: '01', title: 'Discover' },
+    { num: '01', title: 'Understand' },
     { num: '02', title: 'Create' },
     { num: '03', title: 'Refine' },
     { num: '04', title: 'Deliver' }
@@ -17,17 +17,17 @@ const About = () => {
           {/* Image Section */}
           <div className="w-full lg:w-1/2 relative h-full">
             <motion.div 
-              className="relative z-10 w-full aspect-[4/5] overflow-hidden"
+              className="relative z-10 w-full aspect-[4/5] overflow-hidden border-2 border-neutral-900 dark:border-white hover:border-gold dark:hover:border-gold shadow-2xl transition-all duration-500"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none"></div>
               <img 
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2000&auto=format&fit=crop" 
-                alt="John Shah at Work" 
-                className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000 ease-out"
+                src="/tejas-editing.jpg" 
+                alt="Tejas at Work - Riwaz Studio" 
+                className="w-full h-full object-cover scale-100 hover:scale-105 transition-transform duration-1000 ease-out"
                 data-cursor="view"
               />
             </motion.div>
@@ -55,17 +55,18 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               <p className="text-2xl md:text-3xl lg:text-[2rem] text-warm-white font-heading leading-tight transition-colors duration-300">
-                "I believe great editing is more than cutting clips together. It is about rhythm, emotion, timing, composition and storytelling."
+                “I believe great editing is about bringing out the beauty and emotion already there.”
               </p>
               <p className="text-muted-purple font-light text-sm md:text-base leading-relaxed transition-colors duration-300">
-                Every transition, frame, color and sound should have a purpose.
+                Every detail, color, and adjustment should have a purpose.
               </p>
               <p className="text-muted-purple font-light text-sm md:text-base leading-relaxed transition-colors duration-300">
                 Through Riwaz Studio, I transform ideas and raw moments into visuals that feel intentional, cinematic and memorable.
               </p>
               
-              <div className="pt-4">
-                <p className="font-heading italic text-xl text-gold">— John Shah</p>
+              <div className="pt-4 flex items-center gap-2">
+                <span className="text-warm-white/60 text-lg">→</span>
+                <p className="font-heading italic text-xl md:text-2xl text-gold">Tejas</p>
               </div>
             </motion.div>
 

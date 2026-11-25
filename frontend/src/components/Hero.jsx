@@ -44,7 +44,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
           >
             <span className="font-light">Hi, I'm</span>
-            <span className="font-semibold underline decoration-gold decoration-2 underline-offset-4">John Shah</span>
+            <span className="font-semibold underline decoration-gold decoration-2 underline-offset-4">Tejas Patel</span>
             <motion.span
               animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
               transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1 }}
