@@ -14,8 +14,8 @@ const CTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          YOUR STORY.<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] to-[#997A15]">MY EDIT.</span>
+          YOUR VISION.<br/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] to-[#997A15]">MY CREATIVITY.</span>
         </motion.h2>
 
         <motion.p 
@@ -25,7 +25,7 @@ const CTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Have footage, an idea, or a story waiting to be shaped?
+          Have a project in mind? Let’s create something memorable together.
         </motion.p>
 
         <motion.div 

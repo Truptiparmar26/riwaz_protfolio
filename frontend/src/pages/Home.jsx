@@ -5,9 +5,6 @@ import About from '../components/About';
 import Services from '../components/Services';
 import Gallery from '../components/Gallery';
 import Process from '../components/Process';
-
-import Testimonials from '../components/Testimonials';
-import Blog from '../components/Blog';
 import WhyRiwaz from '../components/WhyRiwaz';
 import CTA from '../components/CTA';
 import Contact from '../components/Contact';
@@ -23,9 +20,6 @@ const Home = () => {
       <Services />
       <Gallery />
       <Process />
-
-      <Testimonials />
-      <Blog />
       <WhyRiwaz />
       <CTA />
       <Contact />

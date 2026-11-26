@@ -4,22 +4,22 @@ const steps = [
   {
     num: "01",
     title: "Understand",
-    desc: "We begin by analyzing the raw image, understanding your vision, and identifying the core mood and technical requirements."
+    desc: "We review your photographs, understand your vision, and identify the editing style and requirements for the project."
   },
   {
     num: "02",
     title: "Refine",
-    desc: "Basic corrections are applied: exposure balancing, color correction, and foundational cleanup to prepare the canvas."
+    desc: "We adjust exposure, white balance, colors, and composition to create a clean and balanced foundation."
   },
   {
     num: "03",
     title: "Transform",
-    desc: "The artistic phase. High-end retouching, dodging and burning, and creative color grading are meticulously applied."
+    desc: "We apply careful retouching, color grading, and detail enhancement while preserving the photograph’s natural character."
   },
   {
     num: "04",
     title: "Deliver",
-    desc: "Final quality checks, sharpening, and exporting in required formats to ensure the visual is production-ready."
+    desc: "We complete the final quality checks and deliver your edited photographs in the agreed format."
   }
 ];
 

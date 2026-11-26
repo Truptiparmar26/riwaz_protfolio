@@ -24,7 +24,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50);
 
       // Scroll Spy Logic
-      const sections = ['about', 'services', 'gallery', 'blog', 'contact'];
+      const sections = ['about', 'services', 'gallery', 'contact'];
       let current = '/';
       
       for (const section of sections) {
@@ -51,7 +51,6 @@ const Navbar = () => {
     { name: 'About', path: '/#about' },
     { name: 'Services', path: '/#services' },
     { name: 'Gallery', path: '/#gallery' },
-    { name: 'Blog', path: '/#blog' },
     { name: 'Contact', path: '/#contact' },
   ];
 
