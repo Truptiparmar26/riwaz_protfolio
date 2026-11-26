@@ -35,10 +35,32 @@ function App() {
     }
     requestAnimationFrame(raf);
 
+    // Global anchor click handler for smooth scrolling with Lenis
+    const handleAnchorClick = (e) => {
+      const anchor = e.target.closest('a');
+      if (!anchor) return;
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+
+      if (href.startsWith('#') || (href.startsWith('/#') && window.location.pathname === '/')) {
+        const targetId = href.replace('/#', '').replace('#', '');
+        if (!targetId) return;
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          lenis.scrollTo(targetEl, { offset: -50, duration: 1.2 });
+          window.history.pushState(null, '', `#${targetId}`);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+
     // Simulate preloader
     // Preloader takes care of its own timer and calls setLoading(false)
     
     return () => {
+      document.removeEventListener('click', handleAnchorClick);
       delete window.__lenis;
       lenis.destroy();
     };

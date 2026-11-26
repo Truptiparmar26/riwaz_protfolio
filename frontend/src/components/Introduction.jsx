@@ -4,7 +4,8 @@ import gsap from 'gsap';
 
 const Counter = ({ end, suffix = "", title, textString = "" }) => {
   const countRef = useRef(null);
-  const isInView = useInView(countRef, { once: true, margin: "-100px" });
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "0px 0px -40px 0px" });
 
   useEffect(() => {
     if (isInView && countRef.current && !textString) {
@@ -18,7 +19,7 @@ const Counter = ({ end, suffix = "", title, textString = "" }) => {
   }, [isInView, end, textString]);
 
   return (
-    <div className="flex flex-col items-start text-left">
+    <div ref={containerRef} className="flex flex-col items-start text-left">
       <h3 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-gold mb-1.5 leading-none flex items-center">
         {textString ? (
           <span>{textString}</span>
@@ -44,7 +45,7 @@ const Introduction = () => {
               className="relative w-full max-w-sm sm:max-w-md aspect-[681/1024] border-2 border-neutral-900 dark:border-white hover:border-gold dark:hover:border-gold shadow-2xl shadow-neutral-900/15 dark:shadow-black/80 overflow-hidden transition-all duration-500"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
               transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <img 
@@ -97,7 +98,7 @@ const Introduction = () => {
               </div>
 
               {/* Statistics */}
-              <div className="grid grid-cols-2 gap-y-8 gap-x-8 max-w-lg">
+              <div className="grid grid-cols-2 gap-y-8 gap-x-6 sm:gap-x-8 max-w-lg">
                 <Counter end={100} suffix="+" title="Photos Edited" />
                 <Counter end={50} suffix="+" title="Projects Delivered" />
                 <Counter end={30} suffix="+" title="Happy Clients" />

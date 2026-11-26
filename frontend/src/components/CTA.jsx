@@ -1,6 +1,25 @@
 import { motion } from 'framer-motion';
 
 const CTA = () => {
+  const scrollToSection = (id, focusInput = false) => (e) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(el, { offset: -50, duration: 1.2 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+      window.history.pushState(null, '', `#${id}`);
+      if (focusInput) {
+        setTimeout(() => {
+          const input = el.querySelector('input[name="name"]');
+          if (input) input.focus();
+        }, 700);
+      }
+    }
+  };
+
   return (
     <section className="py-32 md:py-48 relative bg-primary-black overflow-hidden flex items-center justify-center">
       {/* Cinematic Background Glows */}
@@ -37,14 +56,16 @@ const CTA = () => {
         >
           <a 
             href="#contact" 
-            className="px-8 py-4 bg-gold text-primary-black font-heading tracking-widest uppercase text-sm hover:bg-warm-white transition-colors duration-300 w-full sm:w-auto"
+            onClick={scrollToSection('contact', true)}
+            className="px-8 py-4 bg-gold text-primary-black font-heading tracking-widest uppercase text-sm hover:bg-neutral-900 hover:text-gold dark:hover:bg-warm-white dark:hover:text-primary-black transition-colors duration-300 w-full sm:w-auto text-center"
             data-cursor="open"
           >
             START A PROJECT &rarr;
           </a>
           <a 
             href="#gallery" 
-            className="px-8 py-4 border border-charcoal text-warm-white font-heading tracking-widest uppercase text-sm hover:border-gold hover:text-gold transition-colors duration-300 w-full sm:w-auto"
+            onClick={scrollToSection('gallery')}
+            className="px-8 py-4 border border-charcoal text-warm-white font-heading tracking-widest uppercase text-sm hover:border-gold hover:text-gold transition-colors duration-300 w-full sm:w-auto text-center"
           >
             VIEW MY GALLERY
           </a>

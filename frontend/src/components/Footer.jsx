@@ -41,8 +41,8 @@ const Footer = () => {
               RIWAZ<span className="text-gold">.</span>
             </h2>
             <p className="text-muted-purple font-light text-sm leading-relaxed mb-8 pr-4">
-              Turning fleeting moments into timeless visuals. We specialize in high-end retouching, color grading, and bringing your creative vision to life.
-            </p>
+            Riwaz Studio is a creative studio focused on photography, professional photo editing, color grading, retouching, and creative visual services — <br></br>
+            bringing every visual story to life with care and creativity.            </p>
             <div className="inline-flex items-center gap-4 bg-secondary-black/30 backdrop-blur-md border border-charcoal/60 rounded-full px-6 py-2.5 hover:border-gold/30 hover:bg-secondary-black/50 transition-all duration-500 shadow-lg group">
               <div className="flex items-center justify-center w-9 h-9 rounded-full bg-primary-black border border-charcoal/80 text-muted-purple group-hover:text-gold transition-colors duration-500 shadow-inner shrink-0">
                 <FaRegClock size={16} />
@@ -103,8 +103,7 @@ const Footer = () => {
               <h3 className="text-warm-white font-heading text-lg tracking-widest uppercase mb-6 md:text-center lg:text-left">Start a Project</h3>
               
               <p className="text-muted-purple font-light text-sm mb-8 leading-relaxed md:text-center lg:text-left">
-                Ready to bring your creative vision to life? We are currently taking on new projects and would love to hear from you.
-              </p>
+              Have a project in mind? Share your vision with us. We’d love to hear about your photography, editing, or creative requirements.              </p>
               
               <a href="#contact" className="inline-flex items-center gap-4 border border-charcoal/80 text-warm-white hover:text-primary-black hover:bg-gold hover:border-gold px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-500 mb-12 group">
                 Let's Talk
@@ -115,7 +114,7 @@ const Footer = () => {
               <div className="flex flex-col md:items-center lg:items-start w-full">
                 <h4 className="text-warm-white font-heading text-xs tracking-[0.2em] uppercase mb-5 opacity-70">Follow Us</h4>
                 <div className="flex gap-4">
-                  <a href="https://instagram.com/riwazstudio_" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-charcoal/50 flex items-center justify-center text-muted-purple hover:text-primary-black hover:bg-gold hover:border-gold transition-all duration-500" aria-label="Instagram">
+                  <a href="https://instagram.com/riwazstudioofficial" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-charcoal/50 flex items-center justify-center text-muted-purple hover:text-primary-black hover:bg-gold hover:border-gold transition-all duration-500" aria-label="Instagram">
                     <FaInstagram size={16} />
                   </a>
                   <a href="https://www.linkedin.com/in/tejas-vasani-982355424" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-charcoal/50 flex items-center justify-center text-muted-purple hover:text-primary-black hover:bg-gold hover:border-gold transition-all duration-500" aria-label="LinkedIn">
