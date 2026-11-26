@@ -191,10 +191,11 @@ const Services = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
-      const subjectInput = document.querySelector('input[name="subject"]');
+      window.dispatchEvent(new CustomEvent('select-service', { detail: serviceTitle }));
+      const subjectInput = document.querySelector('[name="subject"]');
       if (subjectInput) {
-        subjectInput.value = `Inquiry: ${serviceTitle}`;
-        subjectInput.dispatchEvent(new Event('input', { bubbles: true }));
+        subjectInput.value = serviceTitle;
+        subjectInput.dispatchEvent(new Event('change', { bubbles: true }));
       }
     }
     if (selectedService) setSelectedService(null);

@@ -1,5 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const serviceOptions = [
+  'Wedding Photo Editing',
+  'Cinematic Color Grading',
+  'Natural Skin Retouching',
+  'Premium Photo Retouching',
+  'Creative Retouching',
+  'Background Cleanup & Object Removal',
+  'Kids Photo Editing',
+  'Instagram Carousel Design',
+  'Luxury Album Design',
+  'Other / Custom Inquiry'
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,10 +27,26 @@ const Contact = () => {
   const [errorToast, setErrorToast] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  useEffect(() => {
+    const handleServiceSelect = (e) => {
+      if (e.detail) {
+        setFormData(prev => ({ ...prev, subject: e.detail }));
+      }
+    };
+    window.addEventListener('select-service', handleServiceSelect);
+    return () => window.removeEventListener('select-service', handleServiceSelect);
+  }, []);
+
   const handleChange = (e) => {
     let { name, value } = e.target;
     if (name === 'phone') {
-      value = value.replace(/\D/g, '').slice(0, 10);
+      let digits = value.replace(/\D/g, '');
+      if (digits.startsWith('91') && digits.length > 10) {
+        digits = digits.slice(2);
+      } else if (digits.startsWith('0') && digits.length > 10) {
+        digits = digits.slice(1);
+      }
+      value = digits.slice(0, 10);
     }
     setFormData({ ...formData, [name]: value });
   };
@@ -99,8 +128,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Let's turn your raw footage into a cinematic reality. Tell me about your next project.
-          </motion.p>
+        Let's bring your vision to life. Tell me about your photography, editing, or creative project.          </motion.p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-16 items-start">
@@ -174,37 +202,43 @@ const Contact = () => {
               transition={{ duration: 0.8 }}
               className="bg-secondary-black/50 backdrop-blur-xl border border-charcoal p-8 md:p-12 rounded-2xl shadow-2xl hover:border-gold/30 transition-colors duration-500"
             >
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-xs text-muted-purple uppercase tracking-[0.2em] pl-1 font-semibold">Your Name</label>
+              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                  <div className="space-y-2.5">
+                    <label className="text-xs text-warm-white/90 uppercase tracking-[0.2em] pl-1 font-semibold flex items-center gap-1">
+                      Your Name <span className="text-gold">*</span>
+                    </label>
                     <input 
                       type="text" 
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="John Doe"
-                      className="w-full bg-primary-black border-b border-charcoal px-4 py-3 text-warm-white focus:outline-none focus:border-gold transition-colors duration-300 placeholder-muted-purple/50 font-light"
+                      placeholder="Enter your full name"
+                      className="w-full bg-primary-black/80 border border-charcoal hover:border-charcoal/80 focus:border-gold rounded-xl px-4 py-3.5 text-warm-white focus:outline-none focus:ring-1 focus:ring-gold/30 transition-all duration-300 placeholder:text-muted-purple/50 font-light"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-xs text-muted-purple uppercase tracking-[0.2em] pl-1 font-semibold">Email Address</label>
+                  <div className="space-y-2.5">
+                    <label className="text-xs text-warm-white/90 uppercase tracking-[0.2em] pl-1 font-semibold flex items-center gap-1">
+                      Email Address <span className="text-gold">*</span>
+                    </label>
                     <input 
                       type="email" 
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="john@example.com"
-                      className="w-full bg-primary-black border-b border-charcoal px-4 py-3 text-warm-white focus:outline-none focus:border-gold transition-colors duration-300 placeholder-muted-purple/50 font-light"
+                      placeholder="Your email address"
+                      className="w-full bg-primary-black/80 border border-charcoal hover:border-charcoal/80 focus:border-gold rounded-xl px-4 py-3.5 text-warm-white focus:outline-none focus:ring-1 focus:ring-gold/30 transition-all duration-300 placeholder:text-muted-purple/50 font-light"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-xs text-muted-purple uppercase tracking-[0.2em] pl-1 font-semibold">Phone Number</label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                  <div className="space-y-2.5">
+                    <label className="text-xs text-warm-white/90 uppercase tracking-[0.2em] pl-1 font-semibold flex items-center gap-1">
+                      WhatsApp / Phone <span className="text-gold">*</span>
+                    </label>
                     <input 
                       type="tel" 
                       name="phone"
@@ -213,41 +247,66 @@ const Contact = () => {
                       pattern="[0-9]{10}"
                       title="Please enter a valid 10-digit phone number"
                       required
-                      placeholder="(123) 456-7890"
-                      className="w-full bg-primary-black border-b border-charcoal px-4 py-3 text-warm-white focus:outline-none focus:border-gold transition-colors duration-300 placeholder-muted-purple/50 font-light"
+                      placeholder="Your number"
+                      className="w-full bg-primary-black/80 border border-charcoal hover:border-charcoal/80 focus:border-gold rounded-xl px-4 py-3.5 text-warm-white focus:outline-none focus:ring-1 focus:ring-gold/30 transition-all duration-300 placeholder:text-muted-purple/50 font-light"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-xs text-muted-purple uppercase tracking-[0.2em] pl-1 font-semibold">Subject</label>
-                    <input 
-                      type="text" 
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      placeholder="Project Inquiry"
-                      className="w-full bg-primary-black border-b border-charcoal px-4 py-3 text-warm-white focus:outline-none focus:border-gold transition-colors duration-300 placeholder-muted-purple/50 font-light"
-                    />
+                  <div className="space-y-2.5">
+                    <label className="text-xs text-warm-white/90 uppercase tracking-[0.2em] pl-1 font-semibold flex items-center gap-1">
+                      Service Required <span className="text-gold">*</span>
+                    </label>
+                    <div className="relative">
+                      <select 
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                        className={`w-full bg-primary-black/80 border border-charcoal hover:border-charcoal/80 focus:border-gold rounded-xl px-4 py-3.5 pr-10 focus:outline-none focus:ring-1 focus:ring-gold/30 transition-all duration-300 font-light cursor-pointer appearance-none ${
+                          formData.subject ? 'text-warm-white' : 'text-muted-purple/50'
+                        }`}
+                      >
+                        <option value="" disabled className="text-muted-purple/50 bg-[#121214]">
+                          Select your service
+                        </option>
+                        {serviceOptions.map((service) => (
+                          <option key={service} value={service} className="text-warm-white bg-[#121214]">
+                            {service}
+                          </option>
+                        ))}
+                        {formData.subject && !serviceOptions.includes(formData.subject) && (
+                          <option value={formData.subject} className="text-warm-white bg-[#121214]">
+                            {formData.subject}
+                          </option>
+                        )}
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gold/70">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  <label className="text-xs text-muted-purple uppercase tracking-[0.2em] pl-1 font-semibold">Project Details</label>
+                <div className="space-y-2.5">
+                  <label className="text-xs text-warm-white/90 uppercase tracking-[0.2em] pl-1 font-semibold flex items-center gap-1">
+                    Project Details <span className="text-gold">*</span>
+                  </label>
                   <textarea 
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     rows="4"
-                    placeholder="Tell me about your project vision, timeline, and deliverables..."
-                    className="w-full bg-primary-black border-b border-charcoal px-4 py-3 text-warm-white focus:outline-none focus:border-gold transition-colors duration-300 placeholder-muted-purple/50 font-light resize-none"
+                    placeholder="Tell us about your project, editing style, and requirements..."
+                    className="w-full bg-primary-black/80 border border-charcoal hover:border-charcoal/80 focus:border-gold rounded-xl px-4 py-3.5 text-warm-white focus:outline-none focus:ring-1 focus:ring-gold/30 transition-all duration-300 placeholder:text-muted-purple/50 font-light resize-none"
                   ></textarea>
                 </div>
 
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full py-5 mt-4 relative overflow-hidden group border border-gold bg-transparent text-gold font-heading tracking-[0.3em] uppercase text-sm hover:text-primary-black transition-colors duration-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-5 mt-4 relative overflow-hidden group border border-gold bg-transparent text-gold font-heading tracking-[0.3em] uppercase text-sm hover:text-primary-black transition-colors duration-500 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   <span className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.76,0,0.24,1]"></span>
                   <div className="relative z-10 flex items-center justify-center gap-3">

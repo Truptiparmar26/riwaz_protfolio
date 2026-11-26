@@ -3,27 +3,27 @@ import { motion } from 'framer-motion';
 const reasons = [
   { 
     title: 'Creative Thinking', 
-    desc: 'Approaching every project with a unique narrative perspective.',
+    desc: 'Bringing a thoughtful, creative perspective to every photograph and project.',
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
   },
   { 
-    title: 'Detail-Oriented Editing', 
-    desc: 'Meticulous attention to pacing, sound, color, and transitions.',
+    title: 'Attention to Detail', 
+    desc: 'Careful attention to skin texture, color balance, lighting, and every finishing detail.',
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
   },
   { 
-    title: 'Cinematic Visual Style', 
-    desc: 'Crafting visuals that feel rich, immersive, and premium.',
+    title: 'Natural, Refined Results', 
+    desc: 'Enhancing every image with balanced colors, natural details, and a polished final look.',
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
   },
   { 
     title: 'Personalized Approach', 
-    desc: 'Understanding your specific brand voice and target audience.',
+    desc: "Understanding each client's preferences, editing style, and project requirements.",
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
   },
   { 
     title: 'Professional Delivery', 
-    desc: 'Reliable timelines and polished final outputs ready for any platform.',
+    desc: 'Organized delivery of polished, high-resolution images in the agreed format.',
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
   }
 ];
