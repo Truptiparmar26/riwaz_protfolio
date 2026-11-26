@@ -140,28 +140,28 @@ const mockGallery = [
   { id: 131, title: 'A Love in Bloom', category: 'Baby Shower', image: '/gallery/babyshower/babyshower-couple-tender-glance-tallgrass.webp', aspect: 1.5 },
   { id: 132, title: 'Sweetest Whisper', category: 'Baby Shower', image: '/gallery/babyshower/babyshower-father-kissing-mother-cheek.webp', aspect: 1.5 },
   { id: 133, title: 'Heart to Heart', category: 'Baby Shower', image: '/gallery/babyshower/babyshower-couple-forehead-touch-bump-hands.webp', aspect: 1.5 },
-  { id: 134, title: 'Folk Energy', category: 'Events', image: '/gallery/events/events-folk-singer-stage-dance.webp', aspect: 1.5 },
-  { id: 135, title: 'Electric Beats', category: 'Events', image: '/gallery/events/events-dj-artist-profile-colors.webp', aspect: 1.5 },
-  { id: 136, title: 'Griha Pravesh Steps', category: 'Events', image: '/gallery/events/events-griha-pravesh-kumkum-footsteps.webp', aspect: 1.5 },
-  { id: 137, title: 'Neon Shadows', category: 'Events', image: '/gallery/events/events-party-crowd-silhouette-laser.webp', aspect: 0.67 },
-  { id: 138, title: 'Warlock Arena', category: 'Events', image: '/gallery/events/events-dj-stage-warlock-cube-screen.webp', aspect: 0.67 },
-  { id: 139, title: 'Sonic Dimension', category: 'Events', image: '/gallery/events/events-dj-radial-led-stage-burst.webp', aspect: 0.484 },
-  { id: 140, title: 'Live Serenade', category: 'Events', image: '/gallery/events/events-live-concert-singer-performance.webp', aspect: 1.5 },
-  { id: 141, title: 'Midnight Pulse', category: 'Events', image: '/gallery/events/events-dj-warlock-neon-console.webp', aspect: 1.5 },
-  { id: 142, title: 'Voice of Passion', category: 'Events', image: '/gallery/events/events-folk-singer-passionate-high-note.webp', aspect: 1.5 },
-  { id: 143, title: 'Red Light Rhythm', category: 'Events', image: '/gallery/events/events-dj-red-spotlight-headphones-console.webp', aspect: 0.67 },
-  { id: 144, title: 'Concert Euphoria', category: 'Events', image: '/gallery/events/events-concert-crowd-truss-lighting.webp', aspect: 0.67 },
-  { id: 145, title: 'Divine Jalabhishek', category: 'Events', image: '/gallery/events/events-couple-jalabhishek-puja-urli.webp', aspect: 0.484 },
-  { id: 146, title: 'Soulful Melody', category: 'Events', image: '/gallery/events/events-singer-profile-mic-passion.webp', aspect: 1.5 },
-  { id: 147, title: 'The Turntable Vibe', category: 'Events', image: '/gallery/events/events-dj-mixing-cyan-spotlight.webp', aspect: 1.5 },
-  { id: 148, title: 'Melodic Joy', category: 'Events', image: '/gallery/events/events-folk-singer-smiling-stage.webp', aspect: 1.5 },
-  { id: 149, title: 'Tunnel of Lights', category: 'Events', image: '/gallery/events/events-dj-console-green-tunnel-screen.webp', aspect: 0.67 },
-  { id: 150, title: 'Party on the Floor', category: 'Events', image: '/gallery/events/events-dance-floor-crowd-blue-lights.webp', aspect: 0.67 },
-  { id: 151, title: 'Vastu Hawan Ceremony', category: 'Events', image: '/gallery/events/events-vastu-hawan-puja-living-room.webp', aspect: 0.484 },
-  { id: 152, title: 'Sacred Kalash Offering', category: 'Events', image: '/gallery/events/events-sacred-coconut-puja-offering.webp', aspect: 1.5 },
-  { id: 153, title: 'Holy Shringi Abhishek', category: 'Events', image: '/gallery/events/events-shringi-abhishek-deity-puja.webp', aspect: 1.5 },
-  { id: 154, title: 'The Royal Turban Singer', category: 'Events', image: '/gallery/events/events-singer-red-turban-stage.webp', aspect: 1.5 },
-  { id: 155, title: 'Shubh Avasar  Footprints', category: 'Events', image: '/gallery/events/events-shubh-avasar-kumkum-footprints.webp', aspect: 0.484 },
+  { id: 134, title: 'Folk Energy', category: 'Events', image: '/gallery/events/events-folk-singer-stage-dance.webp', aspect: 1.5, cols: { 3: 0 } },
+  { id: 135, title: 'Electric Beats', category: 'Events', image: '/gallery/events/events-dj-artist-profile-colors.webp', aspect: 1.5, cols: { 3: 1 } },
+  { id: 136, title: 'Griha Pravesh Steps', category: 'Events', image: '/gallery/events/events-griha-pravesh-kumkum-footsteps.webp', aspect: 1.5, cols: { 3: 2 } },
+  { id: 137, title: 'Neon Shadows', category: 'Events', image: '/gallery/events/events-party-crowd-silhouette-laser.webp', aspect: 0.67, cols: { 3: 0 } },
+  { id: 138, title: 'Warlock Arena', category: 'Events', image: '/gallery/events/events-dj-stage-warlock-cube-screen.webp', aspect: 0.67, cols: { 3: 1 } },
+  { id: 139, title: 'Sonic Dimension', category: 'Events', image: '/gallery/events/events-dj-radial-led-stage-burst.webp', aspect: 0.484, cols: { 3: 2 } },
+  { id: 140, title: 'Live Serenade', category: 'Events', image: '/gallery/events/events-live-concert-singer-performance.webp', aspect: 1.5, cols: { 3: 0 } },
+  { id: 141, title: 'Midnight Pulse', category: 'Events', image: '/gallery/events/events-dj-warlock-neon-console.webp', aspect: 1.5, cols: { 3: 1 } },
+  { id: 142, title: 'Voice of Passion', category: 'Events', image: '/gallery/events/events-folk-singer-passionate-high-note.webp', aspect: 1.5, cols: { 3: 2 } },
+  { id: 143, title: 'Red Light Rhythm', category: 'Events', image: '/gallery/events/events-dj-red-spotlight-headphones-console.webp', aspect: 0.67, cols: { 3: 0 } },
+  { id: 144, title: 'Concert Euphoria', category: 'Events', image: '/gallery/events/events-concert-crowd-truss-lighting.webp', aspect: 0.67, cols: { 3: 1 } },
+  { id: 145, title: 'Divine Jalabhishek', category: 'Events', image: '/gallery/events/events-couple-jalabhishek-puja-urli.webp', aspect: 0.484, cols: { 3: 2 } },
+  { id: 146, title: 'Soulful Melody', category: 'Events', image: '/gallery/events/events-singer-profile-mic-passion.webp', aspect: 1.5, cols: { 3: 0 } },
+  { id: 147, title: 'The Turntable Vibe', category: 'Events', image: '/gallery/events/events-dj-mixing-cyan-spotlight.webp', aspect: 1.5, cols: { 3: 1 } },
+  { id: 148, title: 'Melodic Joy', category: 'Events', image: '/gallery/events/events-folk-singer-smiling-stage.webp', aspect: 1.5, cols: { 3: 2 } },
+  { id: 149, title: 'Tunnel of Lights', category: 'Events', image: '/gallery/events/events-dj-console-green-tunnel-screen.webp', aspect: 0.67, cols: { 3: 0 } },
+  { id: 150, title: 'Party on the Floor', category: 'Events', image: '/gallery/events/events-dance-floor-crowd-blue-lights.webp', aspect: 0.67, cols: { 3: 1 } },
+  { id: 151, title: 'Vastu Hawan Ceremony', category: 'Events', image: '/gallery/events/events-vastu-hawan-puja-living-room.webp', aspect: 0.484, cols: { 3: 2 } },
+  { id: 152, title: 'Sacred Kalash Offering', category: 'Events', image: '/gallery/events/events-sacred-coconut-puja-offering.webp', aspect: 1.5, cols: { 3: 0 } },
+  { id: 153, title: 'Holy Shringi Abhishek', category: 'Events', image: '/gallery/events/events-shringi-abhishek-deity-puja.webp', aspect: 1.5, cols: { 3: 1 } },
+  { id: 154, title: 'The Royal Turban Singer', category: 'Events', image: '/gallery/events/events-singer-red-turban-stage.webp', aspect: 1.5, cols: { 3: 2 } },
+  { id: 155, title: 'Shubh Avasar  Footprints', category: 'Events', image: '/gallery/events/events-shubh-avasar-kumkum-footprints.webp', aspect: 0.484, cols: { 3: 2 } },
 ];
 
 const categories = ['All', 'Wedding', 'Pre-Wedding', 'Post', 'Engagement', 'Baby Shower', 'Events'];
@@ -246,102 +246,36 @@ const Gallery = () => {
     };
   }, [selectedImage]);
 
-  // Optimal Height-Balanced Distribution Algorithm (Levels all columns at the bottom)
+  // Exact Height-Balanced Distribution Algorithm
   const columnData = useMemo(() => {
-    if (columnsCount <= 1) {
-      return [filteredImages];
-    }
-
     const cols = Array.from({ length: columnsCount }, () => []);
-    const heights = Array(columnsCount).fill(0);
 
-    // 1. Initial greedy placement using true visual height: 1 / aspect
-    filteredImages.forEach((item) => {
-      const itemHeight = 1 / (item.aspect || 1);
-      let shortest = 0;
-      for (let c = 1; c < columnsCount; c++) {
-        if (heights[c] < heights[shortest]) shortest = c;
-      }
-      cols[shortest].push(item);
-      heights[shortest] += itemHeight;
-    });
+    const hasExplicitCols = filteredImages.length > 0 && filteredImages.every(
+      img => typeof img.cols === 'object' && img.cols?.[columnsCount] !== undefined
+    );
 
-    // 2. Multi-way partition optimization: swap and move items to equalize bottom levels
-    let improved = true;
-    let iterations = 0;
-    while (improved && iterations < 60) {
-      improved = false;
-      iterations++;
-
-      let maxCol = 0, minCol = 0;
-      for (let c = 1; c < columnsCount; c++) {
-        if (heights[c] > heights[maxCol]) maxCol = c;
-        if (heights[c] < heights[minCol]) minCol = c;
-      }
-      const currentDiff = heights[maxCol] - heights[minCol];
-      if (currentDiff < 0.08) break;
-
-      let bestMove = null;
-      let bestMoveDiff = currentDiff;
-
-      // Try moving an item from the tallest column to the shortest
-      for (let i = 0; i < cols[maxCol].length; i++) {
-        const item = cols[maxCol][i];
-        const h = 1 / (item.aspect || 1);
-        const tempHeights = [...heights];
-        tempHeights[maxCol] -= h;
-        tempHeights[minCol] += h;
-        const newDiff = Math.max(...tempHeights) - Math.min(...tempHeights);
-
-        if (newDiff < bestMoveDiff) {
-          bestMoveDiff = newDiff;
-          bestMove = { type: 'move', from: maxCol, to: minCol, index: i, diff: newDiff };
-        }
-      }
-
-      // Try swapping an item between tallest column and any other column
-      for (let otherCol = 0; otherCol < columnsCount; otherCol++) {
-        if (otherCol === maxCol) continue;
-        for (let i = 0; i < cols[maxCol].length; i++) {
-          const item1 = cols[maxCol][i];
-          const h1 = 1 / (item1.aspect || 1);
-          for (let j = 0; j < cols[otherCol].length; j++) {
-            const item2 = cols[otherCol][j];
-            const h2 = 1 / (item2.aspect || 1);
-
-            if (h1 <= h2) continue;
-
-            const tempHeights = [...heights];
-            tempHeights[maxCol] = heights[maxCol] - h1 + h2;
-            tempHeights[otherCol] = heights[otherCol] - h2 + h1;
-            const newDiff = Math.max(...tempHeights) - Math.min(...tempHeights);
-
-            if (newDiff < bestMoveDiff) {
-              bestMoveDiff = newDiff;
-              bestMove = { type: 'swap', col1: maxCol, i, col2: otherCol, j, diff: newDiff };
-            }
-          }
-        }
-      }
-
-      if (bestMove && bestMove.diff < currentDiff - 0.005) {
-        if (bestMove.type === 'move') {
-          const [moved] = cols[bestMove.from].splice(bestMove.index, 1);
-          cols[bestMove.to].push(moved);
-          heights[bestMove.from] -= (1 / (moved.aspect || 1));
-          heights[bestMove.to] += (1 / (moved.aspect || 1));
-        } else {
-          const temp = cols[bestMove.col1][bestMove.i];
-          cols[bestMove.col1][bestMove.i] = cols[bestMove.col2][bestMove.j];
-          cols[bestMove.col2][bestMove.j] = temp;
-          const h1 = 1 / (temp.aspect || 1);
-          const h2 = 1 / (cols[bestMove.col1][bestMove.i].aspect || 1);
-          heights[bestMove.col1] = heights[bestMove.col1] - h1 + h2;
-          heights[bestMove.col2] = heights[bestMove.col2] - h2 + h1;
-        }
-        improved = true;
-      }
+    if (hasExplicitCols) {
+      filteredImages.forEach((img) => {
+        const colIdx = (img.cols?.[columnsCount] ?? 0) % columnsCount;
+        cols[colIdx].push(img);
+      });
+      return cols;
     }
+
+    const colHeights = Array(columnsCount).fill(0);
+    filteredImages.forEach((img) => {
+      const ratio = img.aspect || 1.0;
+
+      let shortestCol = 0;
+      for (let i = 1; i < columnsCount; i++) {
+        if (colHeights[i] < colHeights[shortestCol]) {
+          shortestCol = i;
+        }
+      }
+
+      cols[shortestCol].push(img);
+      colHeights[shortestCol] += ratio;
+    });
 
     return cols;
   }, [filteredImages, columnsCount]);
