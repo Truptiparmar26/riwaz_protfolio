@@ -6,11 +6,11 @@ export const ThemeProvider = ({ children }) => {
   // Check local storage or system preference
   const getInitialTheme = () => {
     if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme');
+      const savedTheme = localStorage.getItem('theme_v2');
       if (savedTheme) {
         return savedTheme === 'dark';
       }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return true; // Default to dark for this portfolio across all devices
     }
     return true; // Default to dark for this portfolio
   };
@@ -21,9 +21,11 @@ export const ThemeProvider = ({ children }) => {
     const root = window.document.documentElement;
     if (isDarkMode) {
       root.classList.add('dark');
+      localStorage.setItem('theme_v2', 'dark');
       localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
+      localStorage.setItem('theme_v2', 'light');
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
