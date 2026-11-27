@@ -196,7 +196,7 @@ const Contact = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className="block text-[10px] md:text-xs text-muted-purple uppercase tracking-widest mb-1 md:mb-2 font-medium">Instagram</span>
-                    <a href="https://instagram.com/riwazstudioofficial" target="_blank" rel="noopener noreferrer" className="text-sm md:text-lg text-warm-white hover:text-gold transition-colors duration-300 block truncate font-normal">@riwazstudio_</a>
+                    <a href="https://instagram.com/riwazstudioofficial" target="_blank" rel="noopener noreferrer" className="text-sm md:text-lg text-warm-white hover:text-gold transition-colors duration-300 block truncate font-normal">@riwazstudioofficial</a>
                   </div>
                 </div>
 
